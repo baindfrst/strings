@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "just_once.h"
 #include "simetric_change.h"
 
 int in_mass(char mass[], int len, char check) // возвращает 1, усли в массиве нет такого элемента, иначе 0
@@ -26,7 +27,7 @@ int main()
 
     for (int i = 0; i != 100; i++)
     {
-        if (str[i] == '\0')
+        if (str[i + 1] == '\0')
         {
             len = i;
             break;
@@ -43,9 +44,13 @@ int main()
         }
     }
 
-    if (in_mass(cap_was, count_was, str[len-1]));
+    if (in_mass(cap_was, count_was, str[len]))
     {
         simetric_change(str);
+    }
+    else
+    {
+        just_once(str);
     }
 
     printf("%s", str);

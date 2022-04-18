@@ -11,9 +11,9 @@ simetric_change:
     jb .pass
     cmp byte[edx], 90; (char)90 - 'Z'
     jg .pass
-    mov eax, 155; что бы найти противоположный элемент, вычитаем из суммы минимального и мас=ксимального элемента нынешний
-    sub eax, dword[edx]
-    mov dword[edx], eax
+    mov ah, 155; что бы найти противоположный элемент, вычитаем из суммы минимального и мас=ксимального элемента нынешний
+    sub ah, byte[edx]
+    mov byte[edx], ah
     .pass:
     inc edx
     jmp .cycle
